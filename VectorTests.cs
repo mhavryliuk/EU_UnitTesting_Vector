@@ -76,7 +76,9 @@ namespace _20180405_UnitTesting.Tests
             Assert.IsInstanceOfType(vector1.Z, typeof(double));
         }
 
-        // Checking for a "conditional" overflow (except if the values of all coordinates are < 0)
+        /// <summary>
+        /// Checking for a "conditional" overflow (except if the values of all coordinates are less 0)
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void PointValueIsLessThanZero()
