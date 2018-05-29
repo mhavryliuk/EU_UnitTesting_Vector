@@ -15,7 +15,9 @@ namespace _20180405_UnitTesting.Tests
         private Vector vector1;
         private Vector vector2;
 
-        // Начальная инициализация для каждого отдельного теста.
+        /// <summary>
+        /// Initial initialization for each separate test.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -23,7 +25,9 @@ namespace _20180405_UnitTesting.Tests
             vector2 = new Vector(1, 3, 5);            
         }
 
-        // Проверка перегрузки бинарного оператора +
+        /// <summary>
+        /// Checking the overload of the binary operator +
+        /// </summary>
         [TestMethod]
         public void AddVector()
         {
@@ -34,10 +38,10 @@ namespace _20180405_UnitTesting.Tests
             Vector actual = vector1 + vector2;
 
             // Assert
-            Assert.AreEqual(expected.ToString(), actual.ToString());   // Проверка значений на равенство
+            Assert.AreEqual(expected.ToString(), actual.ToString());   // Checking values for equality
         }
 
-        // Проверка перегрузки бинарного оператора -
+        // Checking the overload of the binary operator -
         [TestMethod]
         public void SubVector()
         {
@@ -48,10 +52,12 @@ namespace _20180405_UnitTesting.Tests
             Vector actual = vector1 - vector2;
 
             // Assert
-            Assert.AreEqual(expected.ToString(), actual.ToString());   // Проверка значений на равенство
+            Assert.AreEqual(expected.ToString(), actual.ToString());   // Checking values for equality
         }
 
-        // Проверка, что векторы являются не null
+        /// <summary>
+        /// Verifying that the vectors are not null
+        /// </summary>
         [TestMethod]
         public void IsNotNull()
         {
@@ -59,7 +65,9 @@ namespace _20180405_UnitTesting.Tests
             Assert.IsNotNull(vector2);
         }
 
-        // Проверяем тип входных данных
+        /// <summary>
+        /// Checking input data types
+        /// </summary>
         [TestMethod]
         public void TypeIsDouble()
         {
@@ -67,8 +75,8 @@ namespace _20180405_UnitTesting.Tests
             Assert.IsInstanceOfType(vector1.Y, typeof(double));
             Assert.IsInstanceOfType(vector1.Z, typeof(double));
         }
-        
-        // Проверка на "условное" переполнение (исключение если значения всех координат < 0)
+
+        // Checking for a "conditional" overflow (except if the values of all coordinates are < 0)
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void PointValueIsLessThanZero()
